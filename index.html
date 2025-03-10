@@ -14,6 +14,40 @@
     <script src="/static/app/scripts/modernizr-2.6.2.js"></script>
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 固定导航栏样式 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f8f9fa; /* 浅色背景 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+            padding: 10px 20px;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            margin-right: 20px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: #007bff;
+        }
+
+        .content {
+            margin-top: 60px; /* 使内容不被固定的导航栏遮挡 */
+            padding: 20px;
+        }
+    </style>
 
 
 </head>
@@ -91,7 +125,12 @@
     }
 </style>
 
-
+<!-- 导航栏 -->
+<nav class="navbar">
+	<a href="#home">Home</a>
+	<a href="#publications">Publications</a>
+	<a href="#awards">Awards</a>
+</nav>
 
 <body class='background'>
 	<div class='bg-inside'>

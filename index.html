@@ -1,301 +1,284 @@
-
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Xuanpu Zhang — Ph.D. student at Tianjin University researching visual content generation, video models, and world models.">
     <title>Xuanpu Zhang</title>
-    
-    <link rel="stylesheet" type="text/css" href="content/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="content/site.css" />
-    <link rel="stylesheet" type="text/css" href="content/general_project.css" />
-    
-    <script src="/static/app/scripts/modernizr-2.6.2.js"></script>
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        /* 固定导航栏样式 */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #f8f9fa; /* 浅色背景 */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影效果 */
-            padding: 10px 20px;
-            z-index: 1000;
-        }
-
-        .navbar a {
-            text-decoration: none;
-            color: #333;
-            margin-right: 20px;
-            font-weight: bold;
-        }
-
-        .navbar a:hover {
-            color: #007bff;
-        }
-
-        .content {
-            margin-top: 60px; /* 使内容不被固定的导航栏遮挡 */
-            padding: 20px;
-        }
-    </style>
-
-
+    <link rel="stylesheet" href="index_css.css">
 </head>
 
-<!--CSS-->
-<link href="./index_css.css" rel="stylesheet">
+<body>
+    <nav class="site-nav" aria-label="Primary navigation">
+        <div class="nav-inner">
+            <a class="nav-name" href="#home">Xuanpu Zhang</a>
+            <div class="nav-links">
+                <a href="#news">News</a>
+                <a href="#experience">Experience</a>
+                <a href="#publications">Publications</a>
+            </div>
+        </div>
+    </nav>
 
-<style>
-    .project_table {
-        margin: 2%;
-        text-align:start;
-    }
+    <main class="page-shell">
+        <header id="home" class="profile section-anchor">
+            <div class="profile-copy">
+                <p class="eyebrow">Tianjin University</p>
+                <h1>Xuanpu Zhang</h1>
+                <p>
+                    I am currently pursuing a Ph.D. at
+                    <a href="https://seea.tju.edu.cn/" target="_blank" rel="noopener noreferrer">Tianjin University</a>
+                    and expect to graduate in 2029. I received my M.S. degree in computer vision from Tianjin University,
+                    advised by Prof.
+                    <a href="https://scholar.google.com/citations?user=G-mHRrEAAAAJ" target="_blank" rel="noopener noreferrer">Dan Song</a>,
+                    and my B.S. degree in Electronic Information from Hebei University of Technology, where I worked with Prof.
+                    <a href="https://scholar.google.com/citations?user=zUNP94MAAAAJ" target="_blank" rel="noopener noreferrer">Zhenxv Bai</a>.
+                </p>
+                <p>
+                    My research interests lie in <strong>visual content generation</strong>, with a current focus on
+                    <strong>video models</strong> and <strong>world models</strong>. Previously, I worked on image generation,
+                    image editing, and virtual try-on.
+                </p>
+                <p>
+                    I am currently a research intern at <strong>Kling AI Research</strong>. Before that, I interned at
+                    Kuaishou Technology until July 2026 and at Alibaba in 2024.
+                </p>
 
-   .bio-photo {
-            background: #000;
-            width: 100%;
-            height: 100%;
-            color: #fff;
-            text-align: center;
-            border-radius: 50%;
-        }
-    .background {
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-      
-    }
-    .bg-inside{
-      background-color:rgba(255, 255, 255, 0.9);
-      margin:2% 2% 2% 2%;
-      padding: 2% 8% 2% 8%;
-      background-attachment: fixed;
-      background-size: auto;
-    }
-    .left {
-      float: left;
-      width: 40%;
-      margin:5%;
-      display: inline;
-    }
-    .boxright {
-      float: left;
-      margin: 5%;
-      display: inline;
-    }
-    .button {
-    background-color: grey; /* Green */
-    border: none;
-    color: white;
-    text-align: center;
-    display: inline-block;
-    border-radius: 2px;
-    margin: 1px;
-}
-    .button-page{
-        background-color: #008fb3;
-    }
-    .button-sourcecode{
-        background-color:  #204060;
-    }
-    .button-demo{
-        background-color: #FF5733;
-    }
-    .button-paper{
-        background-color: #2eb82e;
-    }
-    .button-colab{
-        background-color: #efa925;
-    }
-    .button-data{
-        background-color: rgb(162, 94, 122);
-    }
-    .button-na{
-        background-color: #000000;
-    }
-</style>
+                <div class="profile-links" aria-label="Profile links">
+                    <a href="mailto:misfitoc16@gmail.com">Email</a>
+                    <a href="https://scholar.google.com/citations?user=EzPr96kAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+                    <a href="https://github.com/little-misfit" target="_blank" rel="noopener noreferrer">GitHub</a>
+                </div>
+            </div>
 
-<!-- 导航栏 -->
-<nav class="navbar">
-	<a href="#home">Home</a>
-	<a href="#publications">Publications</a>
-	<a href="#awards">Awards</a>
-</nav>
+            <div class="profile-photo-wrap">
+                <img class="profile-photo" src="images/myPhoto.jpg" alt="Portrait of Xuanpu Zhang">
+            </div>
+        </header>
 
-<body class='background'>
-	<div class='bg-inside'>
-    <div class="container body-content"></div>
+        <section id="news" class="content-section section-anchor">
+            <div class="section-heading">
+                <p class="eyebrow">Updates</p>
+                <h2>News</h2>
+            </div>
 
-<!--body-->
+            <ul class="news-list">
+                <li>
+                    <time datetime="2026-07">2026.07</time>
+                    <span>Our paper <a href="https://arxiv.org/abs/2608.20161" target="_blank" rel="noopener noreferrer">DARS</a> was accepted to <strong>ACM MM 2026</strong>.</span>
+                </li>
+                <li>
+                    <time datetime="2026-02">2026.02</time>
+                    <span>Our paper <a href="https://littlefatshiba.github.io/layerbind-page/" target="_blank" rel="noopener noreferrer">LayerBind</a> was accepted to <strong>CVPR 2026</strong> as a poster.</span>
+                </li>
+                <li>
+                    <time datetime="2026-02">2026.02</time>
+                    <span>Our paper <a href="https://arxiv.org/abs/2510.24657" target="_blank" rel="noopener noreferrer">GRAG</a> was accepted to <strong>CVPR 2026 Findings</strong>.</span>
+                </li>
+                <li>
+                    <time datetime="2026-02">2026.02</time>
+                    <span>Our paper <a href="https://arxiv.org/abs/2511.18957" target="_blank" rel="noopener noreferrer">Eevee</a> was accepted to <strong>CVPR 2026 Findings</strong>.</span>
+                </li>
+            </ul>
+        </section>
 
-    <div class="bg-inside" style="font-family:'Times New Roman', Times, serif">
-    <!--Bio-->
-         <div class="Bio"><table><col width="75%" /><col width="25%" /><tr>
-          <td>
-            <div class="subtitle-center" style='text-align: center'><b style="color: black;">Xuanpu Zhang</b></div>
-            <div class="bio-content" style="text-align: left;line-height: 1.5;font-size: medium">
-              
-            
-                <p>I started my <b>master degree in computer vision </b> at <a href="https://seea.tju.edu.cn/">Tianjin University</a> in 2022, advised by Prof. <a href="https://scholar.google.com/citations?user=G-mHRrEAAAAJ&hl=zh-CN">Dan Song</a>.
-		Before that, I obtained a B.S. degree in Electronic Information from Hebei University of Technology and was luckily working with Prof. <a href="https://scholar.google.com/citations?user=zUNP94MAAAAJ&hl=zh-CN">Zhenxv Bai</a>.</p>
-		
-		<p>My research interests lie in <b>image generation</b> and <b>editing</b>. Previously, I focused on the <b>virtual try-on</b> task.
-		In the future, I hope to engage in fundamental research on <b>image editing algorithms</b>.
-		<b>Currently, I am applying for a Ph.D. in the 2025/26 academic year, feel free to contact me.</b> </p>
+        <section id="experience" class="content-section section-anchor">
+            <div class="section-heading">
+                <p class="eyebrow">Background</p>
+                <h2>Experience</h2>
+            </div>
 
-		<div>
-		    <a href="https://github.com/little-misfit">
-		        <img src="https://img.shields.io/badge/misfit-github-blue?logo=github" alt="GitHub Profile">
-		    </a>
-		    <a href="https://scholar.google.com/citations?user=EzPr96kAAAAJ&hl=zh-CN">
-			<img src="https://img.shields.io/badge/Google%20Scholar-Profile-green?logo=google-scholar" alt="Google Scholar">
-		    </a>
-		    <a href="mailto:misfitoc16@gmail.com">
-		        <img src="https://img.shields.io/badge/Gmail-Contact-red?logo=gmail" alt="Email">
-		    </a>
-		</div>
-            
-            </div></td>
-            <td><div class='bio-content' style='padding: 30% 5% 2% 5%;'>
-                <img class="bio-photo" src="images/myPhoto.jpg"/>
-               </div></td>
-      </tr></table></div>
+            <h3 class="subsection-title">Research Internships</h3>
+            <div class="experience-grid">
+                <article class="experience-card">
+                    <div class="text-logo" aria-hidden="true">KLING AI</div>
+                    <div>
+                        <h4>Kling AI Research</h4>
+                        <p>Research Intern</p>
+                        <p class="muted">2026.07 – Present</p>
+                    </div>
+                </article>
 
+                <article class="experience-card">
+                    <div class="logo-wrap">
+                        <img src="images/logos/kuaishou.png" alt="Kuaishou Technology logo" loading="lazy">
+                    </div>
+                    <div>
+                        <h4>Kuaishou Technology</h4>
+                        <p>Research Intern</p>
+                        <p class="muted">2025 – 2026.07</p>
+                    </div>
+                </article>
 
-            
+                <article class="experience-card">
+                    <div class="logo-wrap">
+                        <img src="images/logos/alibaba.png" alt="Alibaba logo" loading="lazy">
+                    </div>
+                    <div>
+                        <h4>Alibaba</h4>
+                        <p>Research Intern</p>
+                        <p class="muted">2024</p>
+                    </div>
+                </article>
+            </div>
 
-    <!-- Internships section -->
-    <section id="internships" class="container content-section text-center">
-        <h3>Research Internships</h3>
-        <table class="container content-section text-center">
-            <tr>
-                <td width=5%></td>
-                <td width=30%></td>
-                <td width=30%></td>
-                <td width=5%></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><img id="intern_logos" src="images/logos/alibaba.png" width=50%></td>
-                <td><img id="intern_logos" src="images/logos/kuaishou.png" width=40%></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><b><h4>Alibaba</h4></b></td>
-                <td><b><h4>Kuaishou</h4></b></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>2024</td>
-                <td>2025</td>
-                <td></td>
-            </tr>
-        </table>
-        <br>
+            <h3 class="subsection-title education-title">Education</h3>
+            <article class="education-card">
+                <div class="education-logo">
+                    <img src="images/logos/tju.png" alt="Tianjin University logo" loading="lazy">
+                </div>
+                <div>
+                    <h4>Tianjin University</h4>
+                    <p>Ph.D. Student <span class="muted">· Expected 2029</span></p>
+                    <p>M.S. in Computer Vision <span class="muted">· 2022–2025</span></p>
+                </div>
+            </article>
+        </section>
 
-        <h3>Education</h3>
-        <table class="container content-section text-center">
-            <tr>
-                <td width=10%></td>
-                <td width=40%></td>
-                <td width=10%></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><img id="intern_logos" src="images/logos/tju.png" width=60%></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><b><h4>Tianjin University</h4></b></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>M.S. | 2022-2025</td>
-            </tr>
-        </table>
-    </section>
+        <section id="publications" class="content-section section-anchor">
+            <div class="section-heading">
+                <p class="eyebrow">Selected work</p>
+                <h2>Research Papers</h2>
+            </div>
 
-<!-- Projects section -->
-<section id="projects" class="container content-section">
-    <h2><b>Research Papers</b></h2>
-    <br>
-    <h3><b>2025</b></h3>
-    <table class="project_table"><col width="25%" /><col width="5%" /><col width="65%" />
+            <div class="year-heading"><span>2026</span></div>
 
-        <tr>
-            <td><img src="images/boow_VTON.png" width=100%></td>
-            <td></td>
-            <td><div><a href="https://arxiv.org/pdf/2408.06047"><h4><b style="color: red;">(NEW!) </b>BooW-VTON: Boosting In-the-Wild Virtual Try-On via Mask-Free Pseudo Data Training</h4></a> 
-                    <b>Xuanpu Zhang</b>, Dan Song, Pengxin Zhan, et al.
-                    <br>Conference on Computer Vision and Pattern Recognition (<b>CVPR</b>), 2025
-		    <a class="github-button"
-                        href="https://github.com/little-misfit/BooW-VTON"
-                        data-icon="octicon-star"
-                        data-size="small"
-                        data-show-count="true"
-                        aria-label="Star ntkme/github-buttons on GitHub">Star</a>
-            </div></td>
-        </tr>
-</table>
+            <article class="publication-card">
+                <a class="publication-image" href="https://arxiv.org/abs/2608.20161" target="_blank" rel="noopener noreferrer">
+                    <img src="images/dars.jpg" alt="DARS method overview" loading="lazy">
+                </a>
+                <div class="publication-copy">
+                    <span class="paper-tag">ACM MM 2026</span>
+                    <h3><a href="https://arxiv.org/abs/2608.20161" target="_blank" rel="noopener noreferrer">DARS: Dual-Level Credit Assignment RL with Structured Reasoning for Instruction-Based Image Editing</a></h3>
+                    <p class="authors">Haoxiang Cao, Jiajiong Cao, <strong>Xuanpu Zhang</strong>, Changqian Yu, Chaoqun Wang</p>
+                    <p class="venue">ACM International Conference on Multimedia (<strong>ACM MM</strong>), 2026</p>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2608.20161" target="_blank" rel="noopener noreferrer">Paper</a>
+                    </div>
+                </div>
+            </article>
 
-    <table class="project_table"><col width="25%" /><col width="5%" /><col width="65%" />
+            <article class="publication-card">
+                <a class="publication-image" href="https://littlefatshiba.github.io/layerbind-page/" target="_blank" rel="noopener noreferrer">
+                    <img src="images/layerbind.jpg" alt="LayerBind results and applications" loading="lazy">
+                </a>
+                <div class="publication-copy">
+                    <span class="paper-tag">CVPR 2026 · Poster</span>
+                    <h3><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Chen_Layer-wise_Instance_Binding_for_Regional_and_Occlusion_Control_in_Text-to-Image_CVPR_2026_paper.html" target="_blank" rel="noopener noreferrer">Layer-wise Instance Binding for Regional and Occlusion Control in Text-to-Image Diffusion Transformers</a></h3>
+                    <p class="authors">Ruidong Chen, Yancheng Bai, <strong>Xuanpu Zhang</strong>, Jianhao Zeng, Lanjun Wang, Dan Song, Lei Sun, Xiangxiang Chu, Anan Liu</p>
+                    <p class="venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition (<strong>CVPR</strong>), 2026 · Poster</p>
+                    <div class="paper-links">
+                        <a href="https://openaccess.thecvf.com/content/CVPR2026/html/Chen_Layer-wise_Instance_Binding_for_Regional_and_Occlusion_Control_in_Text-to-Image_CVPR_2026_paper.html" target="_blank" rel="noopener noreferrer">Paper</a>
+                        <a href="https://littlefatshiba.github.io/layerbind-page/" target="_blank" rel="noopener noreferrer">Project</a>
+                    </div>
+                </div>
+            </article>
 
-        <tr>
-            <td><img src="images/pemf.png" width=100%></td>
-            <td></td>
-            <td><div><a href="https://arxiv.org/pdf/2412.03021"><h4>PEMF-VVTO: Point-Enhanced Video Virtual Try-on via Mask-free Paradigm</h4></a> 
-                    Tianyu Chang, Xiaohao Chen, Zhichao Wei, <b>Xuanpu Zhang</b>, et al.
-                    <br>ICCV Submission, 2025
-            </div></td>
-        </tr>
-</table>
-<h3><b>2024</b></h3>
-<table class="project_table"><col width="25%" /><col width="5%" /><col width="65%" />
-        
-    <tr>
-        <td><img src="images/better_fit.png" width=100%></td>
-        <td></td>
-        <td><div><a href="https://arxiv.org/pdf/2403.08453"><h4>Better Fit: Accommodate Variations in Clothing Types for Virtual Try-on</h4></a> 
-            Dan Song, <b>Xuanpu Zhang</b>, Jianhao Zeng, et al. 
-            <br>IEEE Transactions on Circuits and Systems for Video Technology (<b>TCSVT</b>), 2024
-        </div></td>
-    </tr>
-</table>
-<table class="project_table"><col width=25%></td><col width=5%></td><col width=65%>
-    <tr>
-        <td><img src="images/survey.png" width=100%></td>
-        <td></td>
-    <td><div><a href="https://arxiv.org/pdf/2311.04811"><h4>Image-Based Virtual Try-On: A Survey</h4></a> 
-        Dan Song, <b>Xuanpu Zhang</b>, Juan Zhou, et al. 
-        <br>International Journal of Computer Vision (<b>IJCV</b>), 2024
-   </div></td>
-</tr></table>
+            <article class="publication-card">
+                <a class="publication-image" href="https://little-misfit.github.io/GRAG-Image-Editing/" target="_blank" rel="noopener noreferrer">
+                    <img src="images/grag.jpg" alt="GRAG continuous image editing results" loading="lazy">
+                </a>
+                <div class="publication-copy">
+                    <span class="paper-tag">CVPR 2026 Findings</span>
+                    <h3><a href="https://arxiv.org/abs/2510.24657" target="_blank" rel="noopener noreferrer">Group Relative Attention Guidance for Image Editing</a></h3>
+                    <p class="authors"><strong>Xuanpu Zhang</strong>, Xuesong Niu, Ruidong Chen, Dan Song, Jianhao Zeng, Penghui Du, Haoxiang Cao, Kai Wu, An-an Liu</p>
+                    <p class="venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition Findings (<strong>CVPR Findings</strong>), 2026</p>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2510.24657" target="_blank" rel="noopener noreferrer">Paper</a>
+                        <a href="https://little-misfit.github.io/GRAG-Image-Editing/" target="_blank" rel="noopener noreferrer">Project</a>
+                        <a href="https://github.com/little-misfit/GRAG-Image-Editing" target="_blank" rel="noopener noreferrer">Code</a>
+                        <a href="https://huggingface.co/spaces/Little-ECHO/GRAG-Image-Editing" target="_blank" rel="noopener noreferrer">Demo</a>
+                    </div>
+                </div>
+            </article>
 
-  </div></section>
+            <article class="publication-card">
+                <a class="publication-image publication-image-contain" href="https://github.com/AMAP-ML/Eevee" target="_blank" rel="noopener noreferrer">
+                    <img src="images/eevee.jpg" alt="Eevee project illustration" loading="lazy">
+                </a>
+                <div class="publication-copy">
+                    <span class="paper-tag">CVPR 2026 Findings</span>
+                    <h3><a href="https://arxiv.org/abs/2511.18957" target="_blank" rel="noopener noreferrer">Eevee: Towards Close-up High-resolution Video-based Virtual Try-on</a></h3>
+                    <p class="authors">Jianhao Zeng, Yancheng Bai, Ruidong Chen, <strong>Xuanpu Zhang</strong>, Lei Sun, Dongyang Jin, Ryan Xu, Nannan Zhang, Dan Song, Xiangxiang Chu</p>
+                    <p class="venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition Findings (<strong>CVPR Findings</strong>), 2026</p>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2511.18957" target="_blank" rel="noopener noreferrer">Paper</a>
+                        <a href="https://github.com/AMAP-ML/Eevee" target="_blank" rel="noopener noreferrer">Code</a>
+                        <a href="https://huggingface.co/JianhaoZeng/Eevee" target="_blank" rel="noopener noreferrer">Dataset</a>
+                    </div>
+                </div>
+            </article>
 
-	
+            <article class="publication-card">
+                <a class="publication-image" href="https://pemf-vto.github.io/" target="_blank" rel="noopener noreferrer">
+                    <img src="images/pemf.png" alt="PEMF-VTO method overview" loading="lazy">
+                </a>
+                <div class="publication-copy">
+                    <span class="paper-tag">IEEE TCE 2026</span>
+                    <h3><a href="https://arxiv.org/abs/2412.03021" target="_blank" rel="noopener noreferrer">PEMF-VTO: Point-Enhanced Video Virtual Try-on via Mask-Free Paradigm</a></h3>
+                    <p class="authors">Tianyu Chang, Xiaohao Chen, Zhichao Wei, <strong>Xuanpu Zhang</strong>, Qingguo Chen, Weihua Luo, Peipei Song, Xun Yang</p>
+                    <p class="venue">IEEE Transactions on Consumer Electronics (<strong>TCE</strong>), 2026</p>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2412.03021" target="_blank" rel="noopener noreferrer">Paper</a>
+                        <a href="https://pemf-vto.github.io/" target="_blank" rel="noopener noreferrer">Project</a>
+                    </div>
+                </div>
+            </article>
 
-    </div>
-    </div>
-        
+            <div class="year-heading"><span>2025</span></div>
 
-    
-    <script src="/static/app/scripts/jquery-1.10.2.js"></script>
-    <script src="/static/app/scripts/bootstrap.js"></script>
-    <script src="/static/app/scripts/respond.js"></script>
+            <article class="publication-card">
+                <a class="publication-image" href="https://arxiv.org/abs/2408.06047" target="_blank" rel="noopener noreferrer">
+                    <img src="images/boow_VTON.png" alt="BooW-VTON results" loading="lazy">
+                </a>
+                <div class="publication-copy">
+                    <span class="paper-tag">CVPR 2025</span>
+                    <h3><a href="https://arxiv.org/abs/2408.06047" target="_blank" rel="noopener noreferrer">BooW-VTON: Boosting In-the-Wild Virtual Try-On via Mask-Free Pseudo Data Training</a></h3>
+                    <p class="authors"><strong>Xuanpu Zhang</strong>, Dan Song, Pengxin Zhan, Tianyu Chang, Jianhao Zeng, Qingguo Chen, Weihua Luo, An-An Liu</p>
+                    <p class="venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition (<strong>CVPR</strong>), 2025</p>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2408.06047" target="_blank" rel="noopener noreferrer">Paper</a>
+                        <a href="https://github.com/little-misfit/BooW-VTON" target="_blank" rel="noopener noreferrer">Code</a>
+                    </div>
+                </div>
+            </article>
 
+            <div class="year-heading"><span>2024</span></div>
 
+            <article class="publication-card">
+                <a class="publication-image" href="https://arxiv.org/abs/2403.08453" target="_blank" rel="noopener noreferrer">
+                    <img src="images/better_fit.png" alt="Better Fit virtual try-on results" loading="lazy">
+                </a>
+                <div class="publication-copy">
+                    <span class="paper-tag">TCSVT</span>
+                    <h3><a href="https://arxiv.org/abs/2403.08453" target="_blank" rel="noopener noreferrer">Better Fit: Accommodate Variations in Clothing Types for Virtual Try-on</a></h3>
+                    <p class="authors">Dan Song, <strong>Xuanpu Zhang</strong>, Jianhao Zeng, Pengxin Zhan, Qingguo Chen, Weihua Luo, An-An Liu</p>
+                    <p class="venue">IEEE Transactions on Circuits and Systems for Video Technology (<strong>TCSVT</strong>)</p>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2403.08453" target="_blank" rel="noopener noreferrer">Paper</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="publication-card">
+                <a class="publication-image" href="https://arxiv.org/abs/2311.04811" target="_blank" rel="noopener noreferrer">
+                    <img src="images/survey.png" alt="Image-based virtual try-on survey overview" loading="lazy">
+                </a>
+                <div class="publication-copy">
+                    <span class="paper-tag">IJCV 2024</span>
+                    <h3><a href="https://arxiv.org/abs/2311.04811" target="_blank" rel="noopener noreferrer">Image-Based Virtual Try-On: A Survey</a></h3>
+                    <p class="authors">Dan Song, <strong>Xuanpu Zhang</strong>, Juan Zhou, Weizhi Nie, Ruofeng Tong, Mohan S. Kankanhalli, An-An Liu</p>
+                    <p class="venue">International Journal of Computer Vision (<strong>IJCV</strong>), 2024</p>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2311.04811" target="_blank" rel="noopener noreferrer">Paper</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Xuanpu Zhang</p>
+    </footer>
 </body>
 </html>

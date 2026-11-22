@@ -11,10 +11,10 @@ theme button.
 bash run.sh preview
 ```
 
-Open `preview/monet-preview.html` in a browser. This generated file includes the
-fonts, styles, scripts, and images, so it also works after downloading it to
-another machine without a server or network connection. External paper and
-profile links still require the internet.
+Open `preview/monet-preview.html` or `preview/event-preview.html` in a browser.
+Both generated files include their fonts, styles, scripts, and images. Keep the
+two files together when downloading them to another machine so navigation works
+offline. External paper and profile links still require the internet.
 
 To compare eight handwriting options for the slogan:
 
@@ -54,6 +54,12 @@ port 8768 in the Ports panel. Stop the foreground server with Ctrl+C.
 - Original portrait, all nine paper records, teaser images, profile links,
   and News retained. Education details and advisor links are in Experience.
 - Order: profile, News, Recent works, Experience.
+- Event is a separate personal photo journal at `event.html`, linked from the
+  homepage navigation. Entries run newest first, with a date, title, short note,
+  and photo group. The initial entry and three photos are clearly placeholders.
+- Event shares the theme preference with the homepage. Photo links open a native
+  dialog with previous/next controls, arrow-key browsing, and Escape to close;
+  without JavaScript they open the image directly.
 - One compact theme button cycles Day → Night → System, with a matching icon
   and an accessible label describing the current and next modes. Its visible
   circle is 36px with a 44px touch target. Preferences persist when storage is
@@ -69,6 +75,8 @@ original colors. If a painting cannot load, the theme's solid background remains
 ## Edit
 
 - `index.html`: content and page structure.
+- `event.html`: life-event entries and photo captions.
+- `event.css` and `scripts/event.js`: timeline layout and photo viewer.
 - `index_css.css`: responsive layout, font declarations, and theme color tokens.
 - `scripts/theme-init.js`: theme selection before the first paint.
 - `scripts/site.js`: accessible controls and preference synchronization.
@@ -77,6 +85,24 @@ original colors. If a painting cannot load, the theme's solid background remains
 - `images/monet/README.md`: painting references and provenance; reproductions
   in full-resolution JPG format stay local and are excluded from Git.
 - `fonts/`: locally served fonts and their SIL Open Font License texts.
+
+## Add life events
+
+1. Put photos in `images/events/`, ideally in a folder for each entry.
+2. Duplicate an `.event-entry` article in `event.html`, newest first. Give its
+   heading a unique ID and update the article's `aria-labelledby` to match.
+3. Replace the date placeholder with a year and a `<time datetime="YYYY-MM-DD">`
+   element, then replace the title and description with the actual information.
+4. For each photo, set the link's `href` to the full image and the nested image's
+   `src`, `width`, `height`, and descriptive `alt`. Set `data-caption` to its
+   caption and remove the `.photo-placeholder-label` span. Optional visible
+   captions can use `<figcaption>` after the photo link.
+5. Add or remove `.event-figure` elements as needed. One and two images use simple
+   rows; three images use a large lead image and two supporting images.
+6. Run `bash run.sh check` and `bash run.sh preview` to review both themes.
+
+The image viewer stays within the selected entry's photo group. The site is
+static; content and images are added in the repository.
 
 ## Checks
 
@@ -93,12 +119,15 @@ local server running:
 
 ```bash
 python3 tests/browser_check.py --url http://127.0.0.1:8768/
+python3 tests/check_event_browser.py --url http://127.0.0.1:8768/
 ```
 
 Use `--browser /path/to/chromium` or `PLAYWRIGHT_CHROMIUM_EXECUTABLE` to reuse an
 existing browser. The test saves screenshots and `preview/browser-report.json`;
 it covers both themes, 320–1440 px layouts, keyboard controls, local-storage
 failures, system preference changes, reduced motion, and the offline export.
+The Event checks also cover cross-page navigation, photo-group browsing,
+keyboard focus, quick close/reopen, missing images, and offline photo viewing.
 
 GitHub Pages publishes the repository's `main` branch. Local preview exports and
 font comparison downloads stay in the ignored `preview/` directory.

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Life and personal moments — a photo journal by Xuanpu Zhang.">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#f3f5ef">
+    <title>Event · Xuanpu Zhang</title>
+    <script src="scripts/theme-init.js"></script>
+    <link rel="preload" href="fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="index_css.css">
+    <link rel="stylesheet" href="event.css">
+    <script src="scripts/site.js" defer></script>
+    <script src="scripts/event.js" defer></script>
+</head>
+<body class="event-page">
+    <div class="ambient" aria-hidden="true">
+        <div class="ambient-layer ambient-day"></div>
+        <div class="ambient-layer ambient-night"></div>
+    </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-nav">
+        <nav class="nav-inner" aria-label="Primary navigation">
+            <a class="nav-name" href="index.html" aria-label="Xuanpu Zhang, home">
+                <span class="nav-monogram" aria-hidden="true">xz.</span>
+                <span class="nav-full-name">Xuanpu Zhang</span>
+            </a>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#publications">Research</a>
+                    <a href="index.html#experience">Experience</a>
+                    <a href="event.html" aria-current="page">Event</a>
+                </div>
+                <button class="theme-toggle" type="button" data-theme-toggle data-mode="system" aria-label="Theme: System. Switch to Day." title="Theme: System. Switch to Day.">
+                    <svg data-theme-icon="light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+                    <svg data-theme-icon="dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 14.3A8.4 8.4 0 0 1 9.7 3.8 8.5 8.5 0 1 0 20.2 14.3Z"/></svg>
+                    <svg data-theme-icon="system" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main" class="page-shell">
+        <header class="event-intro">
+            <div>
+                <p class="eyebrow">Personal journal</p>
+                <h1>Event<span class="name-period">.</span></h1>
+            </div>
+            <p class="event-lead">Places, people, and moments<br> along the way.</p>
+        </header>
+
+        <section class="event-timeline" aria-label="Life events, newest first">
+            <!-- Duplicate this article for each new entry, newest first. -->
+            <article class="event-entry" aria-labelledby="entry-title">
+                <div class="event-date">
+                    <p class="event-year" aria-hidden="true">—</p>
+                    <p>Date to be added</p>
+                </div>
+                <div class="event-content">
+                    <header class="event-heading">
+                        <p class="eyebrow">Coming soon</p>
+                        <h2 id="entry-title">Untitled entry</h2>
+                        <p class="event-description">Photos and notes coming soon.</p>
+                    </header>
+                    <div class="event-gallery">
+                        <figure class="event-figure">
+                            <a class="event-photo" href="images/events/placeholder.svg" data-caption="Photo placeholder" aria-label="Enlarge first photo placeholder">
+                                <img src="images/events/placeholder.svg" alt="Photo placeholder" width="1200" height="800">
+                                <span class="photo-placeholder-label" aria-hidden="true">Photo placeholder</span>
+                            </a>
+                        </figure>
+                        <figure class="event-figure">
+                            <a class="event-photo" href="images/events/placeholder.svg" data-caption="Photo placeholder" aria-label="Enlarge second photo placeholder">
+                                <img src="images/events/placeholder.svg" alt="Photo placeholder" width="1200" height="800">
+                                <span class="photo-placeholder-label" aria-hidden="true">Photo placeholder</span>
+                            </a>
+                        </figure>
+                        <figure class="event-figure">
+                            <a class="event-photo" href="images/events/placeholder.svg" data-caption="Photo placeholder" aria-label="Enlarge third photo placeholder">
+                                <img src="images/events/placeholder.svg" alt="Photo placeholder" width="1200" height="800">
+                                <span class="photo-placeholder-label" aria-hidden="true">Photo placeholder</span>
+                            </a>
+                        </figure>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <dialog class="photo-viewer" aria-labelledby="viewer-caption">
+        <div class="viewer-top">
+            <p class="viewer-count" aria-live="polite"></p>
+            <button class="viewer-close" type="button" aria-label="Close photo" autofocus>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+            </button>
+        </div>
+        <div class="viewer-stage">
+            <p class="viewer-status" role="status">Loading photo…</p>
+            <img class="viewer-image" alt="" hidden>
+        </div>
+        <div class="viewer-bottom">
+            <p id="viewer-caption"></p>
+            <div class="viewer-controls" aria-label="Photos in this entry">
+                <button type="button" data-photo-step="-1" aria-label="Previous photo">Previous</button>
+                <button type="button" data-photo-step="1" aria-label="Next photo">Next</button>
+            </div>
+        </div>
+    </dialog>
+    <footer class="site-footer">
+        <div class="footer-main">
+            <a class="footer-name" href="index.html">Xuanpu Zhang</a>
+            <p>Tianjin University</p>
+            <a href="mailto:misfitoc16@gmail.com">Get in touch</a>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Xuanpu Zhang</p>
+            <p>Paintings by Claude Monet · <a href="https://www.nga.gov/artworks/61379-woman-parasol-madame-monet-and-her-son" target="_blank" rel="noopener noreferrer">Woman with a Parasol</a> · <a href="https://commons.wikimedia.org/wiki/File:Monet_-_Impression,_Sunrise.jpg" target="_blank" rel="noopener noreferrer">Impression, Sunrise</a></p>
+        </div>
+    </footer>
+</body>
+</html>

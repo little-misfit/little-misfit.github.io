@@ -1,0 +1,4 @@
+preview/
+__pycache__/
+images/monet/*-original.jpg
+images/monet/*.webp

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Slogan font comparison — Xuanpu Zhang</title>
+  <style>
+    {{FONT_CSS}}
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f6f7f4; color: #253b33; font: 400 14px/1.6 Manrope, sans-serif; }
+    main { width: min(1360px, calc(100% - 64px)); margin: 36px auto 24px; }
+    .page-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 26px; }
+    .eyebrow { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; margin: 0 0 6px; }
+    h1 { font: 400 32px/1.2 Georgia, serif; letter-spacing: -.02em; margin: 0 0 10px; }
+    .intro { margin: 0; color: #526157; }
+    .size-control { display: grid; gap: 6px; flex: 0 0 185px; }
+    .size-control label { display: flex; justify-content: space-between; }
+    input { width: 100%; min-height: 32px; margin: 0; accent-color: #39624e; }
+    :focus-visible { outline: 2px solid #39624e; outline-offset: 4px; }
+    .font-row { display: grid; grid-template-columns: 220px minmax(0, 1fr) minmax(0, 1fr); gap: 12px; margin: 0 0 12px; }
+    .font-label { display: flex; align-items: center; gap: 14px; }
+    .letter { display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid #bdc8be; border-radius: 50%; flex: 0 0 30px; font-size: 13px; }
+    h2 { font-size: 14px; font-weight: 600; line-height: 1.4; margin: 0 0 4px; }
+    .font-label p { color: #526157; font-size: 12px; margin: 0; }
+    .sample { position: relative; display: grid; align-items: center; padding: 32px 20px 16px; min-height: 120px; border-radius: 5px; border: 1px solid #d4dcd2; }
+    .sample p { margin: 0; font: 400 var(--sample-size, 32px)/1.5 var(--font), cursive; text-wrap: balance; overflow-wrap: break-word; }
+    .theme-label { position: absolute; left: 20px; top: 10px; font: 400 11px/1.4 Manrope, sans-serif; text-transform: uppercase; letter-spacing: .08em; }
+    .day { background: radial-gradient(ellipse at 95% 0%, #d9e7ec, transparent 65%), radial-gradient(ellipse at 0% 100%, #e2e9d9, transparent 65%), #f3f5ef; color: #4d6054; }
+    .night { background: radial-gradient(ellipse at 95% 0%, #313e42, transparent 65%), radial-gradient(ellipse at 0% 100%, #203d43, transparent 65%), #17282e; color: #b3c3c6; border-color: #3b5157; }
+    .footnote { color: #526157; font-size: 12px; margin: 18px 0 0; }
+    .licenses { margin-top: 28px; border-top: 1px solid #d4dcd2; padding-top: 14px; color: #526157; }
+    summary { cursor: pointer; padding: 8px 0; }
+    pre { white-space: pre-wrap; font-size: 12px; }
+    @media (max-width: 1000px) {
+      .font-row { grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 22px; }
+      .font-label { grid-column: 1 / -1; }
+    }
+    @media (max-width: 600px) {
+      main { width: calc(100% - 32px); margin-top: 24px; }
+      .page-heading { display: block; }
+      h1 { font-size: 28px; }
+      .size-control { max-width: 240px; margin-top: 16px; }
+      .font-row { grid-template-columns: minmax(0, 1fr); }
+      .sample { min-height: 122px; }
+    }
+    @media print { .size-control, .licenses { display: none; } .font-row { break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="page-heading">
+      <div><p class="eyebrow">Xuanpu Zhang</p><h1>Slogan font comparison</h1><p class="intro">Eight handwritten styles, in the homepage's day and night palettes.</p></div>
+      <div class="size-control"><label for="size">Sample size <output id="size-value" for="size">32 px</output></label><input id="size" type="range" min="24" max="40" value="32" step="1"></div>
+    </header>
+    <section aria-label="Font options">{{ROWS}}</section>
+    <p class="footnote">All samples use the same size and regular weight. The homepage currently uses 28 px; use the slider to compare at that size.</p>
+    <details class="licenses"><summary>Font sources &amp; licenses</summary><p>Fonts from Google Fonts, embedded for offline viewing. All are licensed under the SIL Open Font License.</p>{{LICENSES}}</details>
+  </main>
+  <script>
+    const size = document.querySelector('#size');
+    size.addEventListener('input', () => {
+      document.documentElement.style.setProperty('--sample-size', `${size.value}px`);
+      document.querySelector('#size-value').textContent = `${size.value} px`;
+    });
+  </script>
+</body>
+</html>

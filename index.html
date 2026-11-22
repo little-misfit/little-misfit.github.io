@@ -4,62 +4,73 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Xuanpu Zhang — Ph.D. student at Tianjin University researching visual content generation, video models, and world models.">
-    <title>Xuanpu Zhang</title>
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#f3f5ef">
+    <title>Xuanpu Zhang · Visual Generative Research</title>
+    <script src="scripts/theme-init.js"></script>
+    <link rel="preload" href="fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/nothing-you-could-do-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="index_css.css">
+    <script src="scripts/site.js" defer></script>
 </head>
-
 <body>
-    <nav class="site-nav" aria-label="Primary navigation">
-        <div class="nav-inner">
-            <a class="nav-name" href="#home">Xuanpu Zhang</a>
-            <div class="nav-links">
-                <a href="#news">News</a>
-                <a href="#experience">Experience</a>
-                <a href="#publications">Publications</a>
+    <div class="ambient" aria-hidden="true">
+        <div class="ambient-layer ambient-day"></div>
+        <div class="ambient-layer ambient-night"></div>
+    </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-nav">
+        <nav class="nav-inner" aria-label="Primary navigation">
+            <a class="nav-name" href="#home" aria-label="Xuanpu Zhang, home">
+                <span class="nav-monogram" aria-hidden="true">xz.</span>
+                <span class="nav-full-name">Xuanpu Zhang</span>
+            </a>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="#news">News</a>
+                    <a href="#publications">Research</a>
+                    <a href="#experience">Experience</a>
+                </div>
+                <button class="theme-toggle" type="button" data-theme-toggle data-mode="system" aria-label="Theme: System. Switch to Day." title="Theme: System. Switch to Day.">
+                    <svg data-theme-icon="light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+                    <svg data-theme-icon="dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 14.3A8.4 8.4 0 0 1 9.7 3.8 8.5 8.5 0 1 0 20.2 14.3Z"/></svg>
+                    <svg data-theme-icon="system" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+                </button>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <main class="page-shell">
-        <header id="home" class="profile section-anchor">
+    <main id="main" class="page-shell">
+        <section id="home" class="profile section-anchor" aria-labelledby="profile-title">
             <div class="profile-copy">
-                <p class="eyebrow">Tianjin University</p>
-                <h1>Xuanpu Zhang</h1>
-                <p>
-                    I am currently pursuing a Ph.D. at
+                <div class="profile-heading">
+                    <img class="profile-photo" src="images/myPhoto.jpg" alt="Portrait of Xuanpu Zhang" width="210" height="210">
+                    <p class="eyebrow profile-role">Ph.D. researcher<br><span>Tianjin University</span></p>
+                    <h1 id="profile-title">Xuanpu Zhang<span class="name-period">.</span></h1>
+                    <p class="profile-slogan">Perfection is reason made sensual.</p>
+                </div>
+                <div class="profile-detail">
+                <p class="profile-bio">
+                    I am a Ph.D. student at
                     <a href="https://seea.tju.edu.cn/" target="_blank" rel="noopener noreferrer">Tianjin University</a>
-                    and expect to graduate in 2029. I received my M.S. degree in computer vision from Tianjin University,
-                    advised by Prof.
-                    <a href="https://scholar.google.com/citations?user=G-mHRrEAAAAJ" target="_blank" rel="noopener noreferrer">Dan Song</a>,
-                    and my B.S. degree in Electronic Information from Hebei University of Technology, where I worked with Prof.
-                    <a href="https://scholar.google.com/citations?user=zUNP94MAAAAJ" target="_blank" rel="noopener noreferrer">Zhenxv Bai</a>.
+                    (expected 2029) and a research intern at <strong>Kling AI Research</strong>.
+                    My current focus is on <strong>video models</strong> and <strong>world models</strong>,
+                    building on my work in image generation, image editing, and virtual try-on.
                 </p>
-                <p>
-                    My research interests lie in <strong>visual content generation</strong>, with a current focus on
-                    <strong>video models</strong> and <strong>world models</strong>. Previously, I worked on image generation,
-                    image editing, and virtual try-on.
-                </p>
-                <p>
-                    I am currently a research intern at <strong>Kling AI Research</strong>. Before that, I interned at
-                    Kuaishou Technology until July 2026 and at Alibaba in 2024.
-                </p>
-
                 <div class="profile-links" aria-label="Profile links">
                     <a href="mailto:misfitoc16@gmail.com">Email</a>
                     <a href="https://scholar.google.com/citations?user=EzPr96kAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
                     <a href="https://github.com/little-misfit" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </div>
+                </div>
             </div>
+        </section>
 
-            <div class="profile-photo-wrap">
-                <img class="profile-photo" src="images/myPhoto.jpg" alt="Portrait of Xuanpu Zhang">
-            </div>
-        </header>
-
-        <section id="news" class="content-section section-anchor">
+        <section id="news" class="content-section news-section section-anchor" aria-labelledby="news-title">
             <div class="section-heading">
-                <p class="eyebrow">Updates</p>
-                <h2>News</h2>
+                <h2 id="news-title">News</h2>
+                <p class="section-note">Notes from my research.</p>
             </div>
 
             <ul class="news-list">
@@ -86,70 +97,15 @@
             </ul>
         </section>
 
-        <section id="experience" class="content-section section-anchor">
+        <section id="publications" class="content-section works-section section-anchor" aria-labelledby="works-title">
             <div class="section-heading">
-                <p class="eyebrow">Background</p>
-                <h2>Experience</h2>
-            </div>
-
-            <h3 class="subsection-title">Research Internships</h3>
-            <div class="experience-grid">
-                <article class="experience-card">
-                    <div class="logo-wrap">
-                        <img src="images/logos/kling-ai.png" alt="Kling AI logo" loading="lazy">
-                    </div>
-                    <div>
-                        <h4>Kling AI Research</h4>
-                        <p>Research Intern</p>
-                        <p class="muted">2026.07 – Present</p>
-                    </div>
-                </article>
-
-                <article class="experience-card">
-                    <div class="logo-wrap">
-                        <img src="images/logos/kuaishou.png" alt="Kuaishou Technology logo" loading="lazy">
-                    </div>
-                    <div>
-                        <h4>Kuaishou Technology</h4>
-                        <p>Research Intern</p>
-                        <p class="muted">2025 – 2026.07</p>
-                    </div>
-                </article>
-
-                <article class="experience-card">
-                    <div class="logo-wrap">
-                        <img src="images/logos/alibaba.png" alt="Alibaba logo" loading="lazy">
-                    </div>
-                    <div>
-                        <h4>Alibaba</h4>
-                        <p>Research Intern</p>
-                        <p class="muted">2024</p>
-                    </div>
-                </article>
-            </div>
-
-            <h3 class="subsection-title education-title">Education</h3>
-            <article class="education-card">
-                <div class="education-logo">
-                    <img src="images/logos/tju.png" alt="Tianjin University logo" loading="lazy">
-                </div>
-                <div>
-                    <h4>Tianjin University</h4>
-                    <p>Ph.D. Student <span class="muted">· Expected 2029</span></p>
-                    <p>M.S. in Computer Vision <span class="muted">· 2022–2025</span></p>
-                </div>
-            </article>
-        </section>
-
-        <section id="publications" class="content-section section-anchor">
-            <div class="section-heading">
-                <p class="eyebrow">Selected work</p>
-                <h2>Research Papers</h2>
+                <div><p class="eyebrow">Research</p><h2 id="works-title">Recent works</h2></div>
+                <p class="section-note">Image generation, editing &amp; virtual try-on</p>
             </div>
 
             <div class="year-heading"><span>2026</span></div>
 
-            <article class="publication-card">
+            <article class="publication-card publication-featured">
                 <a class="publication-image" href="https://github.com/little-misfit/DiOR-Light" target="_blank" rel="noopener noreferrer">
                     <img src="images/dior.jpg" alt="DiOR-Light scribble-guided image relighting examples" loading="lazy">
                 </a>
@@ -217,7 +173,7 @@
 
             <article class="publication-card">
                 <a class="publication-image" href="https://github.com/AMAP-ML/Eevee" target="_blank" rel="noopener noreferrer">
-                    <img src="images/eevee.jpg" alt="Eevee project illustration" loading="lazy">
+                    <img src="images/eevee.jpg" alt="Eevee high-resolution video virtual try-on teaser" loading="lazy">
                 </a>
                 <div class="publication-copy">
                     <span class="paper-tag">CVPR 2026 Findings</span>
@@ -298,10 +254,77 @@
                 </div>
             </article>
         </section>
-    </main>
 
-    <footer>
-        <p>© 2026 Xuanpu Zhang</p>
+        <section id="experience" class="content-section experience-section section-anchor" aria-labelledby="experience-title">
+            <div class="section-heading">
+                <h2 id="experience-title">Experience</h2>
+            </div>
+
+            <div class="background-note">
+                <p>I received my M.S. degree in computer vision from Tianjin University, advised by
+                    Prof. <a href="https://scholar.google.com/citations?user=G-mHRrEAAAAJ" target="_blank" rel="noopener noreferrer">Dan Song</a>,
+                    and my B.S. degree in Electronic Information from Hebei University of Technology, where I worked with
+                    Prof. <a href="https://scholar.google.com/citations?user=zUNP94MAAAAJ" target="_blank" rel="noopener noreferrer">Zhenxv Bai</a>.</p>
+            </div>
+            <h3 class="subsection-title">Research internships</h3>
+            <div class="experience-grid">
+                <article class="experience-card">
+                    <div class="logo-wrap">
+                        <img src="images/logos/kling-ai.png" alt="Kling AI logo" loading="lazy">
+                    </div>
+                    <div>
+                        <h4>Kling AI Research</h4>
+                        <p>Research Intern</p>
+                        <p class="muted">2026.07 – Present</p>
+                    </div>
+                </article>
+
+                <article class="experience-card">
+                    <div class="logo-wrap">
+                        <img src="images/logos/kuaishou.png" alt="Kuaishou Technology logo" loading="lazy">
+                    </div>
+                    <div>
+                        <h4>Kuaishou Technology</h4>
+                        <p>Research Intern</p>
+                        <p class="muted">2025 – 2026.07</p>
+                    </div>
+                </article>
+
+                <article class="experience-card">
+                    <div class="logo-wrap">
+                        <img src="images/logos/alibaba.png" alt="Alibaba logo" loading="lazy">
+                    </div>
+                    <div>
+                        <h4>Alibaba</h4>
+                        <p>Research Intern</p>
+                        <p class="muted">2024</p>
+                    </div>
+                </article>
+            </div>
+
+            <h3 class="subsection-title education-title">Education</h3>
+            <article class="education-card">
+                <div class="education-logo">
+                    <img src="images/logos/tju.png" alt="Tianjin University logo" loading="lazy">
+                </div>
+                <div>
+                    <h4>Tianjin University</h4>
+                    <p>Ph.D. Student <span class="muted">· Expected 2029</span></p>
+                    <p>M.S. in Computer Vision <span class="muted">· 2022–2025</span></p>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-main">
+            <a class="footer-name" href="#home">Xuanpu Zhang</a>
+            <p>Visual content generation · Tianjin University</p>
+            <a href="mailto:misfitoc16@gmail.com">Get in touch</a>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Xuanpu Zhang</p>
+            <p>Palette inspired by Claude Monet · <a href="https://www.nga.gov/artworks/61379-woman-parasol-madame-monet-and-her-son" target="_blank" rel="noopener noreferrer">Woman with a Parasol</a> · <a href="https://commons.wikimedia.org/wiki/File:Monet_-_Impression,_Sunrise.jpg" target="_blank" rel="noopener noreferrer">Impression, Sunrise</a></p>
+        </div>
     </footer>
 </body>
 </html>

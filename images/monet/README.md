@@ -1,11 +1,13 @@
 # Monet artwork assets
 
-The current design uses only abstract CSS color fields and the original
-`linen-grain.svg` texture. The painting reproductions below are retained locally
-as references from the first draft. They are ignored by Git and are not
-published, displayed, or loaded by the page.
-The SVG is authored for this website and uses procedural noise, not painting
-pixels. Painting names in the footer identify palette inspiration.
+The homepage uses `parasol.webp` and `sunrise.webp` as the day and night CSS
+backgrounds. Reading veils are applied in CSS; the image files are unaltered
+from the earlier proportional WebP exports. Full-resolution `*-original.jpg`
+downloads remain local and ignored by Git. Painting names in the footer credit
+the backgrounds and link to their sources.
+
+`linen-grain.svg` is retained from the previous abstract design and is not used
+by the painting backgrounds.
 
 These are reproductions of Claude Monet paintings, downloaded on 2026-11-23.
 The `*-original.jpg` files preserve the downloaded bytes. The WebP files are

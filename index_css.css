@@ -82,35 +82,31 @@ body {
     transition: background-color .3s ease, color .3s ease;
 }
 
-/* Paintings inform the light and color, not literal imagery on the page. */
+/* Original paintings sit beneath a reading veil, with more detail at the edges. */
 .ambient {
+    --reading-edge: max(24px, calc((100vw - var(--width)) / 2 - 24px));
     position: fixed; inset: 0; z-index: -1;
     overflow: hidden; pointer-events: none;
     background: var(--page);
 }
 .ambient-layer {
     position: absolute; inset: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
     transition: opacity .4s ease;
 }
 .ambient-day {
-    background:
-        radial-gradient(ellipse 85% 40% at 90% 2%, rgba(143, 186, 210, .44), transparent 78%),
-        radial-gradient(ellipse 80% 32% at -5% 77%, rgba(150, 178, 119, .28), transparent 80%),
-        radial-gradient(ellipse 45% 30% at 93% 87%, rgba(208, 193, 134, .18), transparent 78%),
-        linear-gradient(155deg, transparent 35%, rgba(235, 241, 224, .15) 62%, transparent);
+    background-image:
+        linear-gradient(90deg, rgba(243, 245, 239, .38), rgba(243, 245, 239, .83) var(--reading-edge), rgba(243, 245, 239, .87) 48%, rgba(243, 245, 239, .83) calc(100% - var(--reading-edge)), rgba(243, 245, 239, .38)),
+        url("images/monet/parasol.webp");
+    background-position: center, center top;
 }
 .ambient-night {
     opacity: 0;
-    background:
-        radial-gradient(ellipse 52% 22% at 93% 17%, rgba(194, 116, 79, .15), transparent 80%),
-        radial-gradient(ellipse 85% 42% at 75% -5%, rgba(88, 123, 144, .29), transparent 85%),
-        radial-gradient(ellipse 70% 34% at -10% 80%, rgba(52, 104, 113, .20), transparent 85%),
-        linear-gradient(170deg, transparent 30%, rgba(80, 111, 123, .05) 60%, transparent);
-}
-.ambient::after {
-    content: ""; position: absolute; inset: 0;
-    background-image: url("images/monet/linen-grain.svg");
-    opacity: .21;
+    background-image:
+        linear-gradient(90deg, rgba(23, 40, 46, .42), rgba(23, 40, 46, .77) var(--reading-edge), rgba(23, 40, 46, .80) 48%, rgba(23, 40, 46, .77) calc(100% - var(--reading-edge)), rgba(23, 40, 46, .42)),
+        url("images/monet/sunrise.webp");
+    background-position: center, center 42%;
 }
 [data-theme="dark"] .ambient-day { opacity: 0; }
 [data-theme="dark"] .ambient-night { opacity: 1; }
@@ -279,6 +275,14 @@ h2 { font: 500 3rem/1.1 var(--serif); letter-spacing: -.025em; }
 .footer-bottom a { color: var(--muted); text-decoration-color: var(--line); }
 
 @media (max-width: 1050px) {
+    .ambient-day {
+        background-image: linear-gradient(rgba(243, 245, 239, .85), rgba(243, 245, 239, .85)), url("images/monet/parasol.webp");
+        background-position: center, 58% 18%;
+    }
+    .ambient-night {
+        background-image: linear-gradient(rgba(23, 40, 46, .77), rgba(23, 40, 46, .77)), url("images/monet/sunrise.webp");
+        background-position: center, 60% 42%;
+    }
     .nav-inner, .page-shell, .site-footer { width: calc(100% - 56px); }
     .nav-full-name { display: none; }
     .nav-right { gap: 28px; }

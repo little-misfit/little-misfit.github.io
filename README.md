@@ -1,8 +1,9 @@
 # Xuanpu Zhang — personal website
 
 Static academic homepage for GitHub Pages at https://little-misfit.github.io/.
-The design uses abstract Monet-inspired day and night palettes, with locally
-served fonts and a single theme button. The publishing branch is `main`.
+The publishing branch is `main`. Original Monet paintings form the day and
+night backgrounds, with soft reading veils, locally served fonts, and a single
+theme button.
 
 ## Preview
 
@@ -37,14 +38,15 @@ port 8768 in the Ports panel. Stop the foreground server with Ctrl+C.
 
 ## Design and content
 
-- **Day:** abstract sky-blue and meadow-green color fields inspired by Monet's
-  *Woman with a Parasol — Madame Monet and Her Son*.
-- **Night:** blue-grey haze and a restrained warm glow inspired by
-  *Impression, Sunrise*. This is a dark theme inspired by the painting, not a
+- **Day:** *Woman with a Parasol — Madame Monet and Her Son* fills the background
+  with a soft, light reading veil; the edges reveal more of the original paint.
+- **Night:** *Impression, Sunrise* fills the background with a deep blue-grey
+  reading veil. This is a dark theme using the painting, not a
   claim that it depicts night.
-- No standalone painting, figure, frame, or artwork caption. Native CSS color
-  fields and a subtle SVG grain texture form a background beneath the content.
-  The compact, two-column profile brings News and research into view sooner.
+- The paintings are fixed CSS backgrounds without a separate artwork panel.
+  The original brushstrokes remain visible without a blur filter. Mobile crops
+  and a more uniform veil keep the narrow layout readable. The profile, News,
+  Recent works, and Experience layouts are retained.
 - Cormorant Garamond for the name and section titles; Manrope for reading text.
 - Nothing You Could Do handwriting (option H) for “Perfection is reason made sensual.” beneath
   the name. The portrait matches the original homepage's scale: 210px on desktop,
@@ -59,9 +61,10 @@ port 8768 in the Ports panel. Stop the foreground server with Ctrl+C.
 - No continuous animation, third-party scripts, analytics, or runtime font
   requests. Reduced-motion preferences are respected.
 
-Only the navigation uses a translucent, blurred surface. The atmospheric
-background is low-contrast and non-interactive; featured research retains an
-opaque surface for legibility. Publication images keep their original colors.
+Only the navigation uses a translucent, blurred surface. The painting
+backgrounds are non-interactive and use fixed overlay colors for legibility;
+featured research retains an opaque surface. Publication images keep their
+original colors. If a painting cannot load, the theme's solid background remains.
 
 ## Edit
 
@@ -69,9 +72,10 @@ opaque surface for legibility. Publication images keep their original colors.
 - `index_css.css`: responsive layout, font declarations, and theme color tokens.
 - `scripts/theme-init.js`: theme selection before the first paint.
 - `scripts/site.js`: accessible controls and preference synchronization.
-- `images/monet/linen-grain.svg`: original code-native surface texture.
+- `images/monet/parasol.webp` and `sunrise.webp`: compressed background paintings.
+- `images/monet/linen-grain.svg`: retained texture from the previous abstract design.
 - `images/monet/README.md`: painting references and provenance; reproductions
-  from the first draft stay local and are excluded from Git and publication.
+  in full-resolution JPG format stay local and are excluded from Git.
 - `fonts/`: locally served fonts and their SIL Open Font License texts.
 
 ## Checks

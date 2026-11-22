@@ -11,8 +11,11 @@
     <link rel="preload" href="fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="index_css.css">
+    <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
     <link rel="stylesheet" href="event.css">
     <script src="scripts/site.js" defer></script>
+    <script src="vendor/leaflet/leaflet.js" defer></script>
+    <script src="images/events/map/countries.js" defer></script>
     <script src="scripts/event.js" defer></script>
 </head>
 <body class="event-page">
@@ -52,58 +55,96 @@
             <p class="event-lead">Places, people, and moments<br> along the way.</p>
         </header>
 
-        <section class="event-timeline" aria-label="Life events, newest first">
-            <!-- Duplicate this article for each new entry, newest first. -->
-            <article class="event-entry" aria-labelledby="entry-title">
-                <div class="event-date">
-                    <p class="event-year" aria-hidden="true">—</p>
-                    <p>Date to be added</p>
-                </div>
-                <div class="event-content">
-                    <header class="event-heading">
-                        <p class="eyebrow">Coming soon</p>
-                        <h2 id="entry-title">Untitled entry</h2>
-                        <p class="event-description">Photos and notes coming soon.</p>
-                    </header>
-                    <div class="event-gallery">
-                        <figure class="event-figure">
-                            <a class="event-photo" href="images/events/placeholder.svg" data-caption="Photo placeholder" aria-label="Enlarge first photo placeholder">
-                                <img src="images/events/placeholder.svg" alt="Photo placeholder" width="1200" height="800">
-                                <span class="photo-placeholder-label" aria-hidden="true">Photo placeholder</span>
-                            </a>
-                        </figure>
-                        <figure class="event-figure">
-                            <a class="event-photo" href="images/events/placeholder.svg" data-caption="Photo placeholder" aria-label="Enlarge second photo placeholder">
-                                <img src="images/events/placeholder.svg" alt="Photo placeholder" width="1200" height="800">
-                                <span class="photo-placeholder-label" aria-hidden="true">Photo placeholder</span>
-                            </a>
-                        </figure>
-                        <figure class="event-figure">
-                            <a class="event-photo" href="images/events/placeholder.svg" data-caption="Photo placeholder" aria-label="Enlarge third photo placeholder">
-                                <img src="images/events/placeholder.svg" alt="Photo placeholder" width="1200" height="800">
-                                <span class="photo-placeholder-label" aria-hidden="true">Photo placeholder</span>
-                            </a>
-                        </figure>
+        <section class="photo-journal" data-view="wall" aria-label="Photo journal">
+            <div class="journal-toolbar">
+                <div class="collection-note"><p>Sample collection</p><span>Dates and places are illustrative.</span></div>
+                <div class="journal-actions">
+                    <button class="motion-toggle" type="button" aria-label="Pause photo wall" aria-pressed="true" hidden>
+                        <svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg>
+                        <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7Z"/></svg>
+                    </button>
+                    <div class="view-picker" hidden>
+                        <button class="view-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="view-menu">
+                            <span class="view-label">Photo wall</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>
+                        </button>
+                        <div id="view-menu" class="view-menu" role="menu" aria-label="Arrange photos" hidden>
+                            <button type="button" role="menuitemradio" aria-checked="true" data-view="wall">Photo wall<span>Browse freely</span></button>
+                            <button type="button" role="menuitemradio" aria-checked="false" data-view="time">By time<span>Newest first</span></button>
+                            <button type="button" role="menuitemradio" aria-checked="false" data-view="place">By place<span>Explore the map</span></button>
+                        </div>
                     </div>
                 </div>
-            </article>
+            </div>
+            <p class="sr-only view-status" role="status" aria-live="polite"></p>
+            <div class="photo-stage" tabindex="0" aria-label="Scrollable photo wall">
+                <div class="map-canvas" aria-label="Map of photo locations" hidden></div>
+                <div class="photo-canvas">
+                    <!-- Each link is one photo. Sample dates and coordinates are not personal history. -->
+                    <a class="event-photo" data-id="sample-01" data-date="2026-10-18" data-place="Tianjin" data-lat="39.13" data-lng="117.20" data-ratio="0.8" data-tone="sage" data-sample="true" data-title="Untitled moment" data-caption="Your photos and notes will appear here." href="images/events/placeholder.svg" aria-label="View sample photo details, Tianjin">
+                        <img src="images/events/placeholder.svg" alt="Sample photo placeholder" width="1200" height="800"><span class="photo-placeholder-label" aria-hidden="true">Photo to come</span>
+                    </a>
+                    <a class="event-photo" data-id="sample-02" data-date="2026-06-08" data-place="Hangzhou" data-lat="30.25" data-lng="120.15" data-ratio="1.3" data-tone="blue" data-sample="true" data-title="Untitled moment" data-caption="Your photos and notes will appear here." href="images/events/placeholder.svg" aria-label="View sample photo details, Hangzhou">
+                        <img src="images/events/placeholder.svg" alt="Sample photo placeholder" width="1200" height="800"><span class="photo-placeholder-label" aria-hidden="true">Photo to come</span>
+                    </a>
+                    <a class="event-photo" data-id="sample-03" data-date="2026-08-24" data-place="Chengdu" data-lat="30.57" data-lng="104.07" data-ratio="0.9" data-tone="rose" data-sample="true" data-title="Untitled moment" data-caption="Your photos and notes will appear here." href="images/events/placeholder.svg" aria-label="View sample photo details, Chengdu">
+                        <img src="images/events/placeholder.svg" alt="Sample photo placeholder" width="1200" height="800"><span class="photo-placeholder-label" aria-hidden="true">Photo to come</span>
+                    </a>
+                    <a class="event-photo" data-id="sample-04" data-date="2026-03-12" data-place="Shanghai" data-lat="31.23" data-lng="121.47" data-ratio="0.82" data-tone="sand" data-sample="true" data-title="Untitled moment" data-caption="Your photos and notes will appear here." href="images/events/placeholder.svg" aria-label="View sample photo details, Shanghai">
+                        <img src="images/events/placeholder.svg" alt="Sample photo placeholder" width="1200" height="800"><span class="photo-placeholder-label" aria-hidden="true">Photo to come</span>
+                    </a>
+                    <a class="event-photo" data-id="sample-05" data-date="2026-10-17" data-place="Tianjin" data-lat="39.13" data-lng="117.20" data-ratio="0.85" data-tone="lavender" data-sample="true" data-title="Untitled moment" data-caption="Your photos and notes will appear here." href="images/events/placeholder.svg" aria-label="View sample photo details, Tianjin">
+                        <img src="images/events/placeholder.svg" alt="Sample photo placeholder" width="1200" height="800"><span class="photo-placeholder-label" aria-hidden="true">Photo to come</span>
+                    </a>
+                    <a class="event-photo" data-id="sample-06" data-date="2026-06-07" data-place="Hangzhou" data-lat="30.25" data-lng="120.15" data-ratio="1.45" data-tone="sage" data-sample="true" data-title="Untitled moment" data-caption="Your photos and notes will appear here." href="images/events/placeholder.svg" aria-label="View sample photo details, Hangzhou">
+                        <img src="images/events/placeholder.svg" alt="Sample photo placeholder" width="1200" height="800"><span class="photo-placeholder-label" aria-hidden="true">Photo to come</span>
+                    </a>
+                    <a class="event-photo" data-id="sample-07" data-date="2026-08-23" data-place="Chengdu" data-lat="30.57" data-lng="104.07" data-ratio="1.3" data-tone="blue" data-sample="true" data-title="Untitled moment" data-caption="Your photos and notes will appear here." href="images/events/placeholder.svg" aria-label="View sample photo details, Chengdu">
+                        <img src="images/events/placeholder.svg" alt="Sample photo placeholder" width="1200" height="800"><span class="photo-placeholder-label" aria-hidden="true">Photo to come</span>
+                    </a>
+                    <a class="event-photo" data-id="sample-08" data-date="2026-03-11" data-place="Shanghai" data-lat="31.23" data-lng="121.47" data-ratio="0.8" data-tone="rose" data-sample="true" data-title="Untitled moment" data-caption="Your photos and notes will appear here." href="images/events/placeholder.svg" aria-label="View sample photo details, Shanghai">
+                        <img src="images/events/placeholder.svg" alt="Sample photo placeholder" width="1200" height="800"><span class="photo-placeholder-label" aria-hidden="true">Photo to come</span>
+                    </a>
+                    <a class="event-photo" data-id="sample-09" data-date="2026-10-16" data-place="Tianjin" data-lat="39.13" data-lng="117.20" data-ratio="1.4" data-tone="sand" data-sample="true" data-title="Untitled moment" data-caption="Your photos and notes will appear here." href="images/events/placeholder.svg" aria-label="View sample photo details, Tianjin">
+                        <img src="images/events/placeholder.svg" alt="Sample photo placeholder" width="1200" height="800"><span class="photo-placeholder-label" aria-hidden="true">Photo to come</span>
+                    </a>
+                    <a class="event-photo" data-id="sample-10" data-date="2026-06-06" data-place="Hangzhou" data-lat="30.25" data-lng="120.15" data-ratio="1" data-tone="lavender" data-sample="true" data-title="Untitled moment" data-caption="Your photos and notes will appear here." href="images/events/placeholder.svg" aria-label="View sample photo details, Hangzhou">
+                        <img src="images/events/placeholder.svg" alt="Sample photo placeholder" width="1200" height="800"><span class="photo-placeholder-label" aria-hidden="true">Photo to come</span>
+                    </a>
+                    <a class="event-photo" data-id="sample-11" data-date="2026-08-22" data-place="Chengdu" data-lat="30.57" data-lng="104.07" data-ratio="0.9" data-tone="sage" data-sample="true" data-title="Untitled moment" data-caption="Your photos and notes will appear here." href="images/events/placeholder.svg" aria-label="View sample photo details, Chengdu">
+                        <img src="images/events/placeholder.svg" alt="Sample photo placeholder" width="1200" height="800"><span class="photo-placeholder-label" aria-hidden="true">Photo to come</span>
+                    </a>
+                    <a class="event-photo" data-id="sample-12" data-date="2026-03-10" data-place="Shanghai" data-lat="31.23" data-lng="121.47" data-ratio="1.25" data-tone="blue" data-sample="true" data-title="Untitled moment" data-caption="Your photos and notes will appear here." href="images/events/placeholder.svg" aria-label="View sample photo details, Shanghai">
+                        <img src="images/events/placeholder.svg" alt="Sample photo placeholder" width="1200" height="800"><span class="photo-placeholder-label" aria-hidden="true">Photo to come</span>
+                    </a>
+                </div>
+                <div class="map-tools" hidden><button class="map-reset" type="button">All places</button><p class="map-summary"></p></div>
+            </div>
+            <div class="journal-bottom"><p class="collection-count">12 photos</p><p class="view-hint">Click a photo to explore.</p></div>
         </section>
     </main>
 
-    <dialog class="photo-viewer" aria-labelledby="viewer-caption">
+    <dialog class="photo-viewer" aria-labelledby="viewer-title">
         <div class="viewer-top">
             <p class="viewer-count" aria-live="polite"></p>
             <button class="viewer-close" type="button" aria-label="Close photo" autofocus>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
             </button>
         </div>
-        <div class="viewer-stage">
-            <p class="viewer-status" role="status">Loading photo…</p>
-            <img class="viewer-image" alt="" hidden>
+        <div class="viewer-layout">
+            <div class="viewer-stage">
+                <p class="viewer-status" role="status">Loading photo…</p>
+                <img class="viewer-image" alt="" hidden>
+            </div>
+            <div class="viewer-details">
+                <p class="viewer-sample eyebrow">Sample photo</p>
+                <p class="viewer-date"></p>
+                <h2 id="viewer-title"></h2>
+                <p id="viewer-caption"></p>
+                <p class="viewer-place"></p>
+            </div>
         </div>
         <div class="viewer-bottom">
-            <p id="viewer-caption"></p>
-            <div class="viewer-controls" aria-label="Photos in this entry">
+            <div class="viewer-controls" aria-label="Browse photos">
                 <button type="button" data-photo-step="-1" aria-label="Previous photo">Previous</button>
                 <button type="button" data-photo-step="1" aria-label="Next photo">Next</button>
             </div>

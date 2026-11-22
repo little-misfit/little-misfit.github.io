@@ -19,8 +19,17 @@ def export_page(source, destination):
     html = (ROOT / source).read_text()
 
     def inline_css(match):
-        css = (ROOT / match[1]).read_text()
-        css = re.sub(r'url\("([^"]+)"\)', lambda m: f'url("{data_url(m[1])}")', css)
+        path = ROOT / match[1]
+        css = path.read_text()
+
+        def inline_url(asset):
+            url = asset[1].strip().strip('\"\'')
+            if url.startswith(('#', 'data:', 'https:', 'http:')):
+                return asset[0]
+            relative = (path.parent / url).relative_to(ROOT)
+            return f'url("{data_url(relative)}")'
+
+        css = re.sub(r'url\(([^)]+)\)', inline_url, css)
         return f"<style>{css}</style>"
 
     html = re.sub(r'<link rel="stylesheet" href="([^"]+)">', inline_css, html)

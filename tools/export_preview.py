@@ -15,50 +15,23 @@ def data_url(relative):
     return f"data:{mime};base64,{base64.b64encode(path.read_bytes()).decode()}"
 
 
-def export_page(source, destination):
-    html = (ROOT / source).read_text()
-
-    def inline_css(match):
-        path = ROOT / match[1]
-        css = path.read_text()
-
-        def inline_url(asset):
-            url = asset[1].strip().strip('\"\'')
-            if url.startswith(('#', 'data:', 'https:', 'http:')):
-                return asset[0]
-            relative = (path.parent / url).relative_to(ROOT)
-            return f'url("{data_url(relative)}")'
-
-        css = re.sub(r'url\(([^)]+)\)', inline_url, css)
-        return f"<style>{css}</style>"
-
-    html = re.sub(r'<link rel="stylesheet" href="([^"]+)">', inline_css, html)
+def main():
+    html = (ROOT / "index.html").read_text()
+    css = (ROOT / "index_css.css").read_text()
+    css = re.sub(r'url\("([^"]+)"\)', lambda m: f'url("{data_url(m[1])}")', css)
+    html = html.replace('<link rel="stylesheet" href="index_css.css">', f"<style>{css}</style>")
     html = re.sub(r'\s*<link rel="preload"[^>]+>', "", html)
-    # Preserve deferred script order after the DOM in the standalone exports.
-    deferred = []
-
-    def inline_deferred(match):
-        deferred.append(f'<script>{(ROOT / match[1]).read_text()}</script>')
-        return ""
-
-    html = re.sub(r'<script src="([^"]+)" defer></script>', inline_deferred, html)
-    html = html.replace("</body>", "\n".join(deferred) + "\n</body>")
+    # The deferred UI script belongs after the DOM in this standalone export.
+    html = html.replace('<script src="scripts/site.js" defer></script>', "")
+    html = html.replace("</body>", f'<script>{(ROOT / "scripts/site.js").read_text()}</script>\n</body>')
     html = html.replace('<script src="scripts/theme-init.js"></script>',
                         f'<script>{(ROOT / "scripts/theme-init.js").read_text()}</script>')
     html = re.sub(r'(<img\b[^>]*\bsrc=")([^"]+)', lambda m: m[1] + data_url(m[2]), html)
-    html = re.sub(r'(<a\b[^>]*\bhref=")(images/[^"#]+)', lambda m: m[1] + data_url(m[2]), html)
-    html = html.replace('href="event.html', 'href="event-preview.html')
-    html = html.replace('href="index.html', 'href="monet-preview.html')
-    output = ROOT / "preview" / destination
+    output = ROOT / "preview" / "monet-preview.html"
     output.parent.mkdir(exist_ok=True)
     output.write_text(html)
     print(f"Offline preview: {output}")
-
-
-def main():
-    export_page("index.html", "monet-preview.html")
-    export_page("event.html", "event-preview.html")
-    print("Open either HTML in a browser. Keep both files together for navigation; no server is required.")
+    print("Open this HTML in a browser. No server or network connection is required.")
 
 
 if __name__ == "__main__":

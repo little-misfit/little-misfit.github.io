@@ -152,7 +152,6 @@ button, a, summary { touch-action: manipulation; }
     border-bottom: 1px solid transparent;
 }
 .nav-links a:hover { color: var(--ink); border-bottom-color: var(--accent); }
-.nav-links a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--accent); }
 .theme-toggle {
     position: relative; display: grid; place-items: center; flex: 0 0 44px;
     width: 44px; height: 44px; padding: 0;
@@ -314,7 +313,7 @@ h2 { font: 500 3rem/1.1 var(--serif); letter-spacing: -.025em; }
     .nav-right { gap: 20px; }
     .nav-links { gap: 18px; }
     .nav-links a { font-size: .875rem; }
-    .nav-links a[href$="#experience"] { display: none; }
+    .nav-links a[href="#experience"] { display: none; }
     .profile { padding: 36px 0 35px; }
     .profile-copy { grid-template-columns: minmax(0, 1fr); gap: 22px; }
     .profile-heading {

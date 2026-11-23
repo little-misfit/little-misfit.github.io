@@ -19,31 +19,24 @@ class Page(HTMLParser):
         self.tags.append((tag, dict(attrs)))
 
 
-def validate_page(filename):
-    html = (ROOT / filename).read_text()
-    page = Page(html)
-    ids = [attrs["id"] for _, attrs in page.tags if "id" in attrs]
-    assert len(ids) == len(set(ids)), f"Duplicate HTML IDs in {filename}"
-    for tag, attrs in page.tags:
-        if tag == "img":
-            assert "alt" in attrs, "Image missing alternative text"
-        for field in ("src", "href"):
-            url = attrs.get(field, "")
-            parsed = urlsplit(url)
-            if not url or parsed.scheme or parsed.netloc:
-                continue
-            target = ROOT / unquote(parsed.path) if parsed.path else ROOT / filename
-            assert target.is_file(), f"Missing asset: {url}"
-            if parsed.fragment and target.suffix == ".html":
-                target_ids = {a["id"] for _, a in Page(target.read_text()).tags if "id" in a}
-                assert parsed.fragment in target_ids, f"Missing anchor: {url}"
-        if attrs.get("target") == "_blank":
-            assert "noopener" in attrs.get("rel", ""), "External tab missing noopener"
-    return html, page
-
-
-html, page = validate_page("index.html")
-validate_page("event.html")
+html = (ROOT / "index.html").read_text()
+page = Page(html)
+ids = [attrs["id"] for _, attrs in page.tags if "id" in attrs]
+assert len(ids) == len(set(ids)), "Duplicate HTML IDs"
+for tag, attrs in page.tags:
+    if tag == "img":
+        assert "alt" in attrs, "Image missing alternative text"
+    for field in ("src", "href"):
+        url = attrs.get(field, "")
+        parsed = urlsplit(url)
+        if not url or parsed.scheme or parsed.netloc:
+            continue
+        if parsed.path:
+            assert (ROOT / unquote(parsed.path)).is_file(), f"Missing asset: {url}"
+        elif parsed.fragment:
+            assert parsed.fragment in ids, f"Missing anchor: {url}"
+    if attrs.get("target") == "_blank":
+        assert "noopener" in attrs.get("rel", ""), "External tab missing noopener"
 
 assert len(re.findall(r'<article class="publication-card', html)) == 9
 assert sum(tag == "button" and "data-theme-toggle" in attrs for tag, attrs in page.tags) == 1
@@ -51,7 +44,7 @@ assert 'class="artwork"' not in html, "Paintings should not be displayed as stan
 assert all("images/monet/" not in attrs.get("src", "") for tag, attrs in page.tags if tag == "img")
 assert 'class="ambient"' in html and 'aria-hidden="true"' in html
 assert html.index('id="news"') < html.index('id="publications"') < html.index('id="experience"')
-css = (ROOT / "index_css.css").read_text() + (ROOT / "event.css").read_text()
+css = (ROOT / "index_css.css").read_text()
 assert "prefers-reduced-motion" in css
 for asset in re.findall(r'url\("([^"]+)"\)', css):
     assert (ROOT / asset).is_file(), f"Missing stylesheet asset: {asset}"
@@ -68,4 +61,4 @@ assert Counter(map(normalize, paper_records(before))) == Counter(map(normalize, 
 old_links = {a["href"] for t, a in Page(before).tags if t == "a" and a.get("href", "").startswith(("https:", "mailto:"))}
 new_links = {a["href"] for t, a in page.tags if t == "a" and "href" in a}
 assert old_links <= new_links, f"Existing links removed: {old_links - new_links}"
-print("PASS: 9 unchanged papers; existing links retained; homepage and Event assets, navigation and anchors valid.")
+print("PASS: 9 unchanged papers; all existing external links retained; local assets, anchors and theme controls valid.")

@@ -47,7 +47,7 @@ def export_page(source, destination):
                         f'<script>{(ROOT / "scripts/theme-init.js").read_text()}</script>')
     html = re.sub(r'(<img\b[^>]*\bsrc=")([^"]+)', lambda m: m[1] + data_url(m[2]), html)
     html = re.sub(r'(<a\b[^>]*\bhref=")(images/[^"#]+)', lambda m: m[1] + data_url(m[2]), html)
-    html = html.replace('href="event.html', 'href="event-preview.html')
+    html = html.replace('href="events.html', 'href="events-preview.html')
     html = html.replace('href="index.html', 'href="monet-preview.html')
     output = ROOT / "preview" / destination
     output.parent.mkdir(exist_ok=True)
@@ -57,7 +57,7 @@ def export_page(source, destination):
 
 def main():
     export_page("index.html", "monet-preview.html")
-    export_page("event.html", "event-preview.html")
+    export_page("events.html", "events-preview.html")
     print("Open either HTML in a browser. Keep both files together for navigation; no server is required.")
 
 

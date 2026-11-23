@@ -5,13 +5,18 @@ The publishing branch is `main`. Original Monet paintings form the day and
 night backgrounds, with soft reading veils, locally served fonts, and a single
 theme button.
 
+This checkout is the **unpublished Events preview** on
+`feature/events-photo-wall`. GitHub Pages serves `main`, which intentionally has
+no Events navigation or page. Keep this feature off `main` until the user asks
+to publish it.
+
 ## Preview
 
 ```bash
 bash run.sh preview
 ```
 
-Open `preview/monet-preview.html` or `preview/event-preview.html` in a browser.
+Open `preview/monet-preview.html` or `preview/events-preview.html` in a browser.
 Both generated files include their fonts, styles, scripts, and images. Keep the
 two files together when downloading them to another machine so navigation works
 offline. External paper and profile links still require the internet.
@@ -54,7 +59,7 @@ port 8768 in the Ports panel. Stop the foreground server with Ctrl+C.
 - Original portrait, all nine paper records, teaser images, profile links,
   and News retained. Education details and advisor links are in Experience.
 - Order: profile, News, Recent works, Experience.
-- Event is a separate photo journal at `event.html`. Its default masonry wall
+- Events is a separate photo journal at `events.html`. Its default masonry wall
   scrolls slowly, pauses on hover/focus, and stops when the visitor scrolls or
   touches it. The pause/play button controls this motion; reduced-motion users
   start with it off. The wall can always be scrolled manually.
@@ -66,7 +71,7 @@ port 8768 in the Ports panel. Stop the foreground server with Ctrl+C.
   zooms in, while selecting one place opens its photos. Unlocated photos remain
   available in their own stack. Leaflet and Natural Earth data are served locally;
   no API keys, external map tiles, or runtime map requests are needed.
-- Event shares the homepage theme. Clicking a photo opens its image, title,
+- Events shares the homepage theme. Clicking a photo opens its image, title,
   date, place, and notes, with previous/next and keyboard controls. Without
   JavaScript, all photo links remain available and open the images directly.
 - The initial 12 colored photo placeholders and their dates/coordinates are
@@ -75,11 +80,11 @@ port 8768 in the Ports panel. Stop the foreground server with Ctrl+C.
   and an accessible label describing the current and next modes. Its visible
   circle is 36px with a 44px touch target. Preferences persist when storage is
   available; System follows OS changes, and switching works without storage.
-- The homepage has no continuous animation. Event's optional wall movement
+- The homepage has no continuous animation. Events's optional wall movement
   respects reduced motion. There are no remotely served scripts, analytics,
   or runtime font requests; the map library is bundled locally.
 
-Navigation, compact Event controls, and photo hover labels use translucent,
+Navigation, compact Events controls, and photo hover labels use translucent,
 blurred surfaces. The painting
 backgrounds are non-interactive and use fixed overlay colors for legibility;
 featured research retains an opaque surface. Publication images keep their
@@ -88,7 +93,7 @@ original colors. If a painting cannot load, the theme's solid background remains
 ## Edit
 
 - `index.html`: content and page structure.
-- `event.html`: photo collection and per-photo metadata.
+- `events.html`: photo collection and per-photo metadata.
 - `event.css` and `scripts/event.js`: wall, timeline, map, movement, and photo viewer.
 - `vendor/leaflet/` and `images/events/map/`: pinned map library and local geometry,
   with licenses and source information in their READMEs.
@@ -105,7 +110,7 @@ original colors. If a painting cannot load, the theme's solid background remains
 
 1. Put images in `images/events/`, ideally in a folder for each experience.
 2. Replace or duplicate an `.event-photo` link inside `.photo-canvas` in
-   `event.html`. DOM order is the default wall order; the timeline sorts dates.
+   `events.html`. DOM order is the default wall order; the timeline sorts dates.
 3. Set `href` to the full image and the nested image's `src`, `width`, `height`,
    and descriptive `alt`. A smaller thumbnail can use a different `src`.
 4. Update `data-id` (unique), `data-title`, `data-caption`, `data-date`
@@ -147,7 +152,7 @@ Use `--browser /path/to/chromium` or `PLAYWRIGHT_CHROMIUM_EXECUTABLE` to reuse a
 existing browser. The test saves screenshots and `preview/browser-report.json`;
 it covers both themes, 320–1440 px layouts, keyboard controls, local-storage
 failures, system preference changes, reduced motion, and the offline export.
-The Event checks also cover view transitions, chronological order, map grouping,
+The Events checks also cover view transitions, chronological order, map grouping,
 photo details, motion preferences, keyboard focus, missing metadata/images, and
 offline map/photo viewing.
 

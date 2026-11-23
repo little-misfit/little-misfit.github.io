@@ -43,7 +43,7 @@ def validate_page(filename):
 
 
 html, page = validate_page("index.html")
-validate_page("event.html")
+validate_page("events.html")
 
 assert len(re.findall(r'<article class="publication-card', html)) == 9
 assert sum(tag == "button" and "data-theme-toggle" in attrs for tag, attrs in page.tags) == 1
@@ -68,4 +68,4 @@ assert Counter(map(normalize, paper_records(before))) == Counter(map(normalize, 
 old_links = {a["href"] for t, a in Page(before).tags if t == "a" and a.get("href", "").startswith(("https:", "mailto:"))}
 new_links = {a["href"] for t, a in page.tags if t == "a" and "href" in a}
 assert old_links <= new_links, f"Existing links removed: {old_links - new_links}"
-print("PASS: 9 unchanged papers; existing links retained; homepage and Event assets, navigation and anchors valid.")
+print("PASS: 9 unchanged papers; existing links retained; homepage and Events assets, navigation and anchors valid.")
